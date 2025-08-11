@@ -1,24 +1,26 @@
 div {
   width: 100%;
-  height: 150px; 
-  background-color: #00A859;
-  font-family: "Inter", sans-serif; 
-  font-size: 1.2rem; 
-  line-height: 1.5; 
+  height: 150px;
+  background-color: #00a859;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-div > p.titulo {
+div > h1.titulo {
   font-size: 40px;
   font-family: in;
   color: #ffffff;
   text-align: center;
-  
   margin: 0;
 }
 
-div > p.subtitulo{
-    font-size: 20px;
+div > p.titulo {
+  font-size: 20px;
+  color: #ffffff; /* deixa o texto branco também */
+  text-align: center; /* centraliza igual o título */
+  margin: 5px 0 0 0; /* um espacinho acima */
 }
