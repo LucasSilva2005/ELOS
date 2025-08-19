@@ -42,6 +42,30 @@ div > a {
   font-size: 40px;
 }
 
-.main{
-  background-color: black;
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.img{
+  padding-bottom: 15px;
+}
+
+.box {
+  background: #ffffff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+.titulo__quadrado{
+  font-size: 25px;
+    font-family: "Google Sans Code", monospace;
+}
+
+.subtitulo__quadrado{
+    font-family: "Google Sans Code", monospace;
 }
