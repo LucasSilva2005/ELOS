@@ -49,7 +49,7 @@ div > a {
   padding: 20px;
 }
 
-.img{
+.img {
   padding-bottom: 15px;
 }
 
@@ -58,14 +58,40 @@ div > a {
   text-align: center;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-.titulo__quadrado{
+.titulo__quadrado {
   font-size: 25px;
-    font-family: "Google Sans Code", monospace;
+  font-family: "Google Sans Code", monospace;
 }
 
-.subtitulo__quadrado{
-    font-family: "Google Sans Code", monospace;
+.subtitulo__quadrado {
+  font-family: "Google Sans Code", monospace;
+}
+
+.titulo__meio {
+  padding: 50px 0px 30px 0px;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Google Sans Code", monospace;
+}
+
+.btn__cadastro{
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  background-color: #ffbb00;
+  color: #ffffff;
+  padding: 1%;
+  border-radius: 8%;
+  text-decoration: none;
+}
+
+.footer{
+  color: #ffffff;
+  background-color: #333333;
+  text-align: center;
+  padding: 30px;
+  margin-top: 30px;
 }
