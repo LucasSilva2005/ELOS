@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="principal.css" />
+    <title>Menu Lateral Expansível</title>
+  </head>
+  <body>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"
+          >
+            <rect width="7" height="9" x="3" y="3" rx="1" />
+            <rect width="7" height="5" x="14" y="3" rx="1" />
+            <rect width="7" height="9" x="14" y="12" rx="1" />
+            <rect width="7" height="5" x="3" y="16" rx="1" />
+          </svg>
+          Dashboard
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+          >
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+              d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+            />
+          </svg>
+          Pedidos
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+            <path d="M12 18V6" />
+          </svg>
+          Clientes
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-package-icon lucide-package"
+          >
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+            />
+            <path d="M12 22V12" />
+            <polyline points="3.29 7 12 12 20.71 7" />
+            <path d="m7.5 4.27 9 5.15" />
+          </svg>
+          Produtos
+        </li>
+      </ul>
+    </div>
+
+    <div class="content" id="content">
+      <h1>Dashboard</h1>
+      <p>Visão geral do seu negócio</p>
+      <hr />
+
+      <!-- Conteúdo abaixo da linha -->
+      <div class="cards-container">
+        <div class="card">
+          <div class="icon">💰</div>
+          <div class="info">
+            <p>Receita Total</p>
+            <h2>R$ 125.0k</h2>
+          </div>
+          <div class="status positive">↑ 27.6%</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛒</div>
+          <div class="info">
+            <p>Pedidos</p>
+            <h2>342</h2>
+          </div>
+          <div class="status positive">↑ 18.3%</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">👤</div>
+          <div class="info">
+            <p>Clientes</p>
+            <h2>R$ 1.2k</h2>
+          </div>
+          <div class="status positive">↑ 7.9%</div>
+        </div>
+
+        <div class="card">
+          <div class="icon">📦</div>
+          <div class="info">
+            <p>Produtos</p>
+            <h2>89</h2>
+          </div>
+          <div class="status positive">↑ 4.7%</div>
+        </div>
+      </div>
+      <div class="charts-container">
+        <div class="chart card">
+          <h3>Vendas Mensais</h3>
+          <p>Últimos 6 meses</p>
+          <div class="bar" data-label="Jan" data-value="65"></div>
+          <div class="bar" data-label="Fev" data-value="78"></div>
+          <div class="bar" data-label="Mar" data-value="92"></div>
+          <div class="bar" data-label="Abr" data-value="85"></div>
+          <div class="bar" data-label="Mai" data-value="98"></div>
+          <div class="bar" data-label="Jun" data-value="125"></div>
+        </div>
+
+        <div class="chart card">
+          <h3>Top Produtos</h3>
+          <p>Mais vendidos este mês</p>
+          <ul class="top-products">
+            <li>
+              <span>Notebook Dell Inspiron</span>
+              <span>R$ 112.5k <span class="positive">↑ 23.5%</span></span>
+            </li>
+            <li>
+              <span>Mouse Logitech MX</span>
+              <span>R$ 11.4k <span class="positive">↑ 15.2%</span></span>
+            </li>
+            <li>
+              <span>Teclado Corsair K95</span>
+              <span>R$ 23.4k <span class="negative">↓ 5.8%</span></span>
+            </li>
+            <li>
+              <span>Monitor Samsung 27"</span>
+              <span>R$ 40.8k <span class="positive">↑ 31.2%</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- ====== Pedidos Recentes ====== -->
+<div class="pedidos-card">
+  <h3>Pedidos Recentes</h3>
+  <table class="pedidos-tabela">
+    <thead>
+      <tr>
+        <th>Pedido</th>
+        <th>Cliente</th>
+        <th>Produto</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ORD-001<br><small>2025-01-15</small></td>
+        <td><strong>João Silva</strong></td>
+        <td>Notebook Dell</td>
+        <td>R$ 2.500</td>
+        <td><span class="status concluido">Concluído</span></td>
+        <td class="acoes">
+          <i class="fas fa-eye"></i>
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>ORD-002<br><small>2025-01-15</small></td>
+        <td><strong>Maria Santos</strong></td>
+        <td>Mouse Wireless</td>
+        <td>R$ 89</td>
+        <td><span class="status pendente">Pendente</span></td>
+        <td class="acoes">
+          <i class="fas fa-eye"></i>
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>ORD-003<br><small>2025-01-14</small></td>
+        <td><strong>Pedro Costa</strong></td>
+        <td>Teclado Mecânico</td>
+        <td>R$ 350</td>
+        <td><span class="status processando">Processando</span></td>
+        <td class="acoes">
+          <i class="fas fa-eye"></i>
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>ORD-004<br><small>2025-01-14</small></td>
+        <td><strong>Ana Oliveira</strong></td>
+        <td>Monitor 4K</td>
+        <td>R$ 1.200</td>
+        <td><span class="status concluido">Concluído</span></td>
+        <td class="acoes">
+          <i class="fas fa-eye"></i>
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Importa os ícones do Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </div>
+
+    <script src="principal.js"></script>
+  </body>
+</html>

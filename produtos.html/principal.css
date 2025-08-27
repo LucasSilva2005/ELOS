@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex; /* Flex para organizar sidebar e conteúdo */
+  min-height: 100vh;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  background-color: #00a859;
+  color: #fff;
+  position: fixed; /* Fixo para overlay no mobile */
+  top: 0;
+  left: -250px; /* Escondido inicialmente */
+  transition: left 0.3s ease;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.sidebar ul li:hover {
+  background-color: #44c037;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #00a859;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  z-index: 1101;
+  font-size: 20px;
+}
+
+/* Conteúdo principal */
+.content {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* responsivo */
+  margin-top: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.icon {
+  background: linear-gradient(135deg, #7d5fff, #4f46e5);
+  color: #fff;
+  font-size: 24px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+.info h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+}
+
+.status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.status.positive {
+  background: #d4f8df;
+  color: #1b8a34;
+}
+
+.charts-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.charts-container .chart {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.chart h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.chart p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Barra de vendas */
+.bar {
+  background: linear-gradient(90deg, #7d5fff, #4f46e5);
+  height: 20px;
+  border-radius: 10px;
+  margin: 8px 0;
+  position: relative;
+}
+
+.bar::after {
+  content: attr(data-label) ' - R$' attr(data-value) 'k';
+  position: absolute;
+  right: 10px;
+  top: 0;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* Top produtos */
+.top-products {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-products li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.top-products li span.positive {
+  color: #1b8a34;
+  font-weight: bold;
+}
+
+.top-products li span.negative {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.pedidos-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.pedidos-card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.pedidos-tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pedidos-tabela th, 
+.pedidos-tabela td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.pedidos-tabela th {
+  background: #f9f9f9;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status.concluido {
+  background: #d4f6e1;
+  color: #2e9d57;
+}
+
+.status.pendente {
+  background: #fff5d6;
+  color: #c9a208;
+}
+
+.status.processando {
+  background: #e5ecff;
+  color: #2f6fff;
+}
+
+.acoes i {
+  margin: 0 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.acoes i.fa-eye { color: #007bff; }
+.acoes i.fa-edit { color: #28a745; }
+.acoes i.fa-trash { color: #dc3545; }
+
+
+
+/* Quando sidebar está ativa em telas grandes */
+@media (min-width: 769px) {
+  .sidebar.active + .content {
+    margin-left: 250px;
+  }
+}
+
+/* Mobile: sidebar ocupa a tela */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70%;
+    max-width: 250px;
+  }
+}
