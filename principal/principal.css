@@ -28,6 +28,12 @@ body {
   margin: 0;
 }
 
+.link {
+  color: inherit; /* mantém a cor do texto normal */
+  text-decoration: none; /* remove o sublinhado */
+  cursor: default; /* tira o cursor de link */
+}
+
 .sidebar ul li {
   display: flex;
   align-items: center;
@@ -73,7 +79,7 @@ body {
 .card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 220px;
   display: flex;
@@ -157,7 +163,7 @@ body {
 }
 
 .bar::after {
-  content: attr(data-label) ' - R$' attr(data-value) 'k';
+  content: attr(data-label) " - R$" attr(data-value) "k";
   position: absolute;
   right: 10px;
   top: 0;
@@ -195,7 +201,7 @@ body {
   background: #fff;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
 
@@ -209,7 +215,7 @@ body {
   border-collapse: collapse;
 }
 
-.pedidos-tabela th, 
+.pedidos-tabela th,
 .pedidos-tabela td {
   padding: 10px 12px;
   text-align: left;
@@ -248,11 +254,15 @@ body {
   font-size: 16px;
 }
 
-.acoes i.fa-eye { color: #007bff; }
-.acoes i.fa-edit { color: #28a745; }
-.acoes i.fa-trash { color: #dc3545; }
-
-
+.acoes i.fa-eye {
+  color: #007bff;
+}
+.acoes i.fa-edit {
+  color: #28a745;
+}
+.acoes i.fa-trash {
+  color: #dc3545;
+}
 
 /* Quando sidebar está ativa em telas grandes */
 @media (min-width: 769px) {
