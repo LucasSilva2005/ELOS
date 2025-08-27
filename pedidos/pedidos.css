@@ -1,0 +1,107 @@
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header .search {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header input[type="search"] {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-bar button {
+      padding: 10px 15px;
+      background: linear-gradient(to right, #6a5af9, #9072ff);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .concluido {
+      background: #d4f6d4;
+      color: #2d9f2d;
+    }
+
+    .pendente {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .processando {
+      background: #d0e4ff;
+      color: #1e66d0;
+    }
+
+    .actions i {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .actions i.view { color: #007bff; }
+    .actions i.edit { color: #28a745; }
+    .actions i.delete { color: #dc3545; }

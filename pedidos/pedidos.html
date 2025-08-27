@@ -1,11 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedidos - Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="pedidos.css" />
+    <link rel="stylesheet" href="../sidebar.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Pedidos</h1>
+      <div class="search">
+        <input type="search" placeholder="Buscar..." />
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-user-circle"></i>
+      </div>
+    </header>
+
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"
+          >
+            <rect width="7" height="9" x="3" y="3" rx="1" />
+            <rect width="7" height="5" x="14" y="3" rx="1" />
+            <rect width="7" height="9" x="14" y="12" rx="1" />
+            <rect width="7" height="5" x="3" y="16" rx="1" />
+          </svg>
+          Dashboard
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+          >
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+              d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+            />
+          </svg>
+          <a href="/pedidos/pedidos.html" class="link">Pedidos</a>
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+            <path d="M12 18V6" />
+          </svg>
+          Clientes
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-package-icon lucide-package"
+          >
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+            />
+            <path d="M12 22V12" />
+            <polyline points="3.29 7 12 12 20.71 7" />
+            <path d="m7.5 4.27 9 5.15" />
+          </svg>
+          Produtos
+        </li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="top-bar">
+        <span>Gerencie todos os pedidos</span>
+        <button>Novo Pedido</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ORD-001<br /><small>2025-01-15</small></td>
+            <td>João Silva</td>
+            <td>Notebook Dell</td>
+            <td>R$ 2.500</td>
+            <td><span class="status concluido">Concluído</span></td>
+            <td class="actions">
+              <i class="fa-solid fa-eye view"></i>
+              <i class="fa-solid fa-pen edit"></i>
+              <i class="fa-solid fa-trash delete"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-002<br /><small>2025-01-15</small></td>
+            <td>Maria Santos</td>
+            <td>Mouse Wireless</td>
+            <td>R$ 89</td>
+            <td><span class="status pendente">Pendente</span></td>
+            <td class="actions">
+              <i class="fa-solid fa-eye view"></i>
+              <i class="fa-solid fa-pen edit"></i>
+              <i class="fa-solid fa-trash delete"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-003<br /><small>2025-01-14</small></td>
+            <td>Pedro Costa</td>
+            <td>Teclado Mecânico</td>
+            <td>R$ 350</td>
+            <td><span class="status processando">Processando</span></td>
+            <td class="actions">
+              <i class="fa-solid fa-eye view"></i>
+              <i class="fa-solid fa-pen edit"></i>
+              <i class="fa-solid fa-trash delete"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-004<br /><small>2025-01-14</small></td>
+            <td>Ana Oliveira</td>
+            <td>Monitor 4K</td>
+            <td>R$ 1.200</td>
+            <td><span class="status concluido">Concluído</span></td>
+            <td class="actions">
+              <i class="fa-solid fa-eye view"></i>
+              <i class="fa-solid fa-pen edit"></i>
+              <i class="fa-solid fa-trash delete"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script src="/principal/principal.js"></script>
+  </body>
 </html>
