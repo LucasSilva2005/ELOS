@@ -27,6 +27,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "home.html"));
 });
 
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "../principal/principal.html"));
+});
+
+app.get("/pedidos", (req, res) => {
+  res.sendFile(path.join(__dirname, "../pedidos/pedidos.html"));
+});
+
 app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "cadastro.html"));
 });
