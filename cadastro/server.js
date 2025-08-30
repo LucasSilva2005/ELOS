@@ -10,6 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// SERVIR ARQUIVOS ESTÁTICOS
+app.use(express.static(path.join(__dirname, "public")));
+
 // Conexão PostgreSQL
 const pool = new Pool({
   user: "postgres",
@@ -21,11 +24,23 @@ const pool = new Pool({
 
 // Servir HTML na raiz
 app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
+
+app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "cadastro.html"));
 });
 
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../login/login.html"));
+});
+
+app.get("/clientes/lista", (req, res) => {
+  res.sendFile(path.join(__dirname, "../clientes/clientes.html"));
+});
+
+app.get("/clientes/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../clientes/cadastro_clientes.html"));
 });
 
 // ======================
@@ -78,6 +93,39 @@ app.post("/login", async (req, res) => {
     res.status(500).send("❌ Erro no login");
   }
 });
+
+// ======================
+// ROTAS DE CLIENTES
+// ======================
+
+// Cadastrar cliente
+app.post("/clientes", async (req, res) => {
+  const { nome, codigo_cliente, email, telefone, pedidos, total_gasto } = req.body;
+
+  try {
+    await pool.query(
+      "INSERT INTO clientes (nome, codigo_cliente, email, telefone, pedidos, total_gasto) VALUES ($1, $2, $3, $4, $5, $6)",
+      [nome, codigo_cliente, email, telefone, pedidos, total_gasto]
+    );
+
+    res.status(201).send({ message: "✅ Cliente cadastrado com sucesso!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "❌ Erro ao cadastrar cliente" });
+  }
+});
+
+// Listar clientes (dados em JSON)
+app.get("/clientes/data", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM clientes ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "❌ Erro ao buscar clientes" });
+  }
+});
+
 
 // Inicia servidor
 app.listen(port, () => {

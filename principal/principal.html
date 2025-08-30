@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="principal.css" />
-    <link rel="stylesheet" href="../sidebar.css">
-    <title>Menu Lateral Expansível</title>
+    <link rel="stylesheet" href="../sidebar.css" />
+    <title>Dashboard - Elos</title>
   </head>
   <body>
     <button class="toggle-btn" id="toggleBtn">☰</button>
@@ -53,7 +53,6 @@
             />
           </svg>
           <a href="/pedidos/pedidos.html" class="link">Pedidos</a>
-          
         </li>
         <li>
           <svg
@@ -98,7 +97,6 @@
         </li>
       </ul>
     </div>
-
     <div class="content" id="content">
       <h1>Dashboard</h1>
       <p>Visão geral do seu negócio</p>
@@ -178,75 +176,77 @@
         </div>
       </div>
       <!-- ====== Pedidos Recentes ====== -->
-<div class="pedidos-card">
-  <h3>Pedidos Recentes</h3>
-  <table class="pedidos-tabela">
-    <thead>
-      <tr>
-        <th>Pedido</th>
-        <th>Cliente</th>
-        <th>Produto</th>
-        <th>Valor</th>
-        <th>Status</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>ORD-001<br><small>2025-01-15</small></td>
-        <td><strong>João Silva</strong></td>
-        <td>Notebook Dell</td>
-        <td>R$ 2.500</td>
-        <td><span class="status concluido">Concluído</span></td>
-        <td class="acoes">
-          <i class="fas fa-eye"></i>
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>ORD-002<br><small>2025-01-15</small></td>
-        <td><strong>Maria Santos</strong></td>
-        <td>Mouse Wireless</td>
-        <td>R$ 89</td>
-        <td><span class="status pendente">Pendente</span></td>
-        <td class="acoes">
-          <i class="fas fa-eye"></i>
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>ORD-003<br><small>2025-01-14</small></td>
-        <td><strong>Pedro Costa</strong></td>
-        <td>Teclado Mecânico</td>
-        <td>R$ 350</td>
-        <td><span class="status processando">Processando</span></td>
-        <td class="acoes">
-          <i class="fas fa-eye"></i>
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>ORD-004<br><small>2025-01-14</small></td>
-        <td><strong>Ana Oliveira</strong></td>
-        <td>Monitor 4K</td>
-        <td>R$ 1.200</td>
-        <td><span class="status concluido">Concluído</span></td>
-        <td class="acoes">
-          <i class="fas fa-eye"></i>
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <div class="pedidos-card">
+        <h3>Pedidos Recentes</h3>
+        <table class="pedidos-tabela">
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Cliente</th>
+              <th>Produto</th>
+              <th>Valor</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ORD-001<br /><small>2025-01-15</small></td>
+              <td><strong>João Silva</strong></td>
+              <td>Notebook Dell</td>
+              <td>R$ 2.500</td>
+              <td><span class="status concluido">Concluído</span></td>
+              <td class="acoes">
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD-002<br /><small>2025-01-15</small></td>
+              <td><strong>Maria Santos</strong></td>
+              <td>Mouse Wireless</td>
+              <td>R$ 89</td>
+              <td><span class="status pendente">Pendente</span></td>
+              <td class="acoes">
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD-003<br /><small>2025-01-14</small></td>
+              <td><strong>Pedro Costa</strong></td>
+              <td>Teclado Mecânico</td>
+              <td>R$ 350</td>
+              <td><span class="status processando">Processando</span></td>
+              <td class="acoes">
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>ORD-004<br /><small>2025-01-14</small></td>
+              <td><strong>Ana Oliveira</strong></td>
+              <td>Monitor 4K</td>
+              <td>R$ 1.200</td>
+              <td><span class="status concluido">Concluído</span></td>
+              <td class="acoes">
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<!-- Importa os ícones do Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+      <!-- Importa os ícones do Font Awesome -->
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
     </div>
 
     <script src="principal.js"></script>

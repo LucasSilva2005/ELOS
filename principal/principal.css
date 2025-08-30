@@ -6,12 +6,17 @@ body {
 }
 
 
-
 /* Conteúdo principal */
 .content {
   flex: 1;
   margin: 0;
   text-align: center;
+  transition: margin-left 0.3s ease;
+  margin-left: 0;
+}
+
+.content.shift{
+  margin-left: 250px;
 }
 
 .cards-container {

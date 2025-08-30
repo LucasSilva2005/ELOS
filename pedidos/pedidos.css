@@ -1,107 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f6fa;
-      color: #333;
-    }
+  background-color: #f9f9fb;
+  color: #333;
+}
 
-    header {
-      background: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+.header p {
+  color: #777;
+}
 
-    header .search {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+.actions-top {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 
-    header input[type="search"] {
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+.actions-top select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
 
-    main {
-      padding: 20px;
-    }
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+.btn.export {
+  background-color: #6c757d;
+}
+.btn.novo {
+  background: linear-gradient(90deg, #6a5af9, #9072ff);
+}
 
-    .top-bar button {
-      padding: 10px 15px;
-      background: linear-gradient(to right, #6a5af9, #9072ff);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.table-section h2 {
+  margin-bottom: 15px;
+  color: #555;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 
-    th, td {
-      padding: 12px 15px;
-      text-align: left;
-    }
+th,
+td {
+  padding: 14px 20px;
+  text-align: left;
+}
 
-    th {
-      background: #f0f0f0;
-    }
+th {
+  background-color: #f3f4f6;
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
+}
 
-    tr:nth-child(even) {
-      background: #f9f9f9;
-    }
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+tbody tr:hover {
+  background-color: #f7f8fa;
+}
 
-    .status {
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 12px;
-      font-weight: bold;
-      display: inline-block;
-    }
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
 
-    .concluido {
-      background: #d4f6d4;
-      color: #2d9f2d;
-    }
+.status.concluido {
+  background-color: #e6f9f0;
+  color: #27ae60;
+}
+.status.pendente {
+  background-color: #fff8e1;
+  color: #f1c40f;
+}
+.status.processando {
+  background-color: #e5f0ff;
+  color: #3498db;
+}
 
-    .pendente {
-      background: #fff3cd;
-      color: #856404;
-    }
+.actions i {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.actions i:hover {
+  transform: scale(1.2);
+}
+.actions i:nth-child(1) {
+  color: #3498db;
+}
+.actions i:nth-child(2) {
+  color: #2ecc71;
+}
+.actions i:nth-child(3) {
+  color: #e74c3c;
+}
 
-    .processando {
-      background: #d0e4ff;
-      color: #1e66d0;
-    }
-
-    .actions i {
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    .actions i.view { color: #007bff; }
-    .actions i.edit { color: #28a745; }
-    .actions i.delete { color: #dc3545; }
+small {
+  color: #999;
+  font-size: 12px;
+}

@@ -1,11 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../sidebar.css" />
+    <link rel="stylesheet" href="produtos.css" />
     <title>Produtos</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"
+          >
+            <rect width="7" height="9" x="3" y="3" rx="1" />
+            <rect width="7" height="5" x="14" y="3" rx="1" />
+            <rect width="7" height="9" x="14" y="12" rx="1" />
+            <rect width="7" height="5" x="3" y="16" rx="1" />
+          </svg>
+          <a href="/principal/principal.html">Dashboard</a>
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+          >
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+              d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+            />
+          </svg>
+          <a href="/pedidos/pedidos.html" class="link">Pedidos</a>
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+            <path d="M12 18V6" />
+          </svg>
+          <a href="/clientes/clientes.html">Clientes</a>
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-package-icon lucide-package"
+          >
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+            />
+            <path d="M12 22V12" />
+            <polyline points="3.29 7 12 12 20.71 7" />
+            <path d="m7.5 4.27 9 5.15" />
+          </svg>
+          <a href="/produtos/produtos.html">Produtos</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="container">
+        <header>
+          <h1>Produtos</h1>
+          <p>Gerencie seu catálogo de produtos</p>
+          <button class="btn-novo">
+            <i class="fa-solid fa-plus"></i> Novo Produto
+          </button>
+        </header>
+
+        <table>
+          <thead>
+            <tr>
+              <th>PRODUTO</th>
+              <th>CATEGORIA</th>
+              <th>PREÇO</th>
+              <th>ESTOQUE</th>
+              <th>STATUS</th>
+              <th>AÇÕES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="produto-info">
+                  <div class="icon"><i class="fa-solid fa-box"></i></div>
+                  <div>
+                    <strong>Notebook Dell Inspiron</strong><br />
+                    <span>ID: 1</span>
+                  </div>
+                </div>
+              </td>
+              <td>Eletrônicos</td>
+              <td><strong>R$ 2.500</strong></td>
+              <td>15 unidades</td>
+              <td><span class="status ativo">Ativo</span></td>
+              <td>
+                <i class="fa-solid fa-pen-to-square edit"></i>
+                <i class="fa-solid fa-trash delete"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="produto-info">
+                  <div class="icon"><i class="fa-solid fa-box"></i></div>
+                  <div>
+                    <strong>Mouse Logitech MX</strong><br />
+                    <span>ID: 2</span>
+                  </div>
+                </div>
+              </td>
+              <td>Acessórios</td>
+              <td><strong>R$ 89</strong></td>
+              <td>45 unidades</td>
+              <td><span class="status ativo">Ativo</span></td>
+              <td>
+                <i class="fa-solid fa-pen-to-square edit"></i>
+                <i class="fa-solid fa-trash delete"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="produto-info">
+                  <div class="icon"><i class="fa-solid fa-box"></i></div>
+                  <div>
+                    <strong>Teclado Corsair K95</strong><br />
+                    <span>ID: 3</span>
+                  </div>
+                </div>
+              </td>
+              <td>Acessórios</td>
+              <td><strong>R$ 350</strong></td>
+              <td>8 unidades</td>
+              <td><span class="status baixo">Estoque Baixo</span></td>
+              <td>
+                <i class="fa-solid fa-pen-to-square edit"></i>
+                <i class="fa-solid fa-trash delete"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../principal/principal.js"></script>
+  </body>
 </html>

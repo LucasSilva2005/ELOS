@@ -3,25 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedidos - Admin</title>
+    <title>Gerenciar Pedidos</title>
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
     />
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="pedidos.css" />
     <link rel="stylesheet" href="../sidebar.css" />
   </head>
   <body>
-    <header>
-      <h1>Pedidos</h1>
-      <div class="search">
-        <input type="search" placeholder="Buscar..." />
-        <i class="fa-solid fa-bell"></i>
-        <i class="fa-solid fa-user-circle"></i>
-      </div>
-    </header>
-
     <button class="toggle-btn" id="toggleBtn">☰</button>
+
     <div class="sidebar" id="sidebar">
       <ul>
         <li>
@@ -42,7 +35,7 @@
             <rect width="7" height="9" x="14" y="12" rx="1" />
             <rect width="7" height="5" x="3" y="16" rx="1" />
           </svg>
-          Dashboard
+          <a href="/principal/principal.html">Dashboard</a>
         </li>
         <li>
           <svg
@@ -82,7 +75,7 @@
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
             <path d="M12 18V6" />
           </svg>
-          Clientes
+          <a href="/clientes/clientes.html">Clientes</a>
         </li>
         <li>
           <svg
@@ -104,80 +97,127 @@
             <polyline points="3.29 7 12 12 20.71 7" />
             <path d="m7.5 4.27 9 5.15" />
           </svg>
-          Produtos
+          <a href="/produtos/produtos.html">Produtos</a>
         </li>
       </ul>
     </div>
 
-    <main>
-      <div class="top-bar">
-        <span>Gerencie todos os pedidos</span>
-        <button>Novo Pedido</button>
-      </div>
+    <div class="main-content">
+      <div class="container">
+        <header class="header">
+          <div>
+            <h1>Gerenciar Pedidos</h1>
+            <p>Visualize e gerencie todos os pedidos</p>
+          </div>
+          <div class="actions-top">
+            <select>
+              <option>Todos os Status</option>
+              <option>Concluído</option>
+              <option>Pendente</option>
+              <option>Processando</option>
+            </select>
+            <button class="btn export">
+              <i class="fa-solid fa-download"></i> Exportar
+            </button>
+            <button class="btn novo">+ Novo Pedido</button>
+          </div>
+        </header>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Pedido</th>
-            <th>Cliente</th>
-            <th>Produto</th>
-            <th>Valor</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ORD-001<br /><small>2025-01-15</small></td>
-            <td>João Silva</td>
-            <td>Notebook Dell</td>
-            <td>R$ 2.500</td>
-            <td><span class="status concluido">Concluído</span></td>
-            <td class="actions">
-              <i class="fa-solid fa-eye view"></i>
-              <i class="fa-solid fa-pen edit"></i>
-              <i class="fa-solid fa-trash delete"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>ORD-002<br /><small>2025-01-15</small></td>
-            <td>Maria Santos</td>
-            <td>Mouse Wireless</td>
-            <td>R$ 89</td>
-            <td><span class="status pendente">Pendente</span></td>
-            <td class="actions">
-              <i class="fa-solid fa-eye view"></i>
-              <i class="fa-solid fa-pen edit"></i>
-              <i class="fa-solid fa-trash delete"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>ORD-003<br /><small>2025-01-14</small></td>
-            <td>Pedro Costa</td>
-            <td>Teclado Mecânico</td>
-            <td>R$ 350</td>
-            <td><span class="status processando">Processando</span></td>
-            <td class="actions">
-              <i class="fa-solid fa-eye view"></i>
-              <i class="fa-solid fa-pen edit"></i>
-              <i class="fa-solid fa-trash delete"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>ORD-004<br /><small>2025-01-14</small></td>
-            <td>Ana Oliveira</td>
-            <td>Monitor 4K</td>
-            <td>R$ 1.200</td>
-            <td><span class="status concluido">Concluído</span></td>
-            <td class="actions">
-              <i class="fa-solid fa-eye view"></i>
-              <i class="fa-solid fa-pen edit"></i>
-              <i class="fa-solid fa-trash delete"></i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
+        <section class="table-section">
+          <h2>Pedidos Recentes</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Pedido</th>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>ORD-001</strong><br />
+                  <small>2025-01-15</small>
+                </td>
+                <td>João Silva</td>
+                <td>Notebook Dell</td>
+                <td>R$ 2.500</td>
+                <td>
+                  <span class="status concluido"
+                    ><i class="fa-solid fa-check"></i> Concluído</span
+                  >
+                </td>
+                <td class="actions">
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>ORD-002</strong><br />
+                  <small>2025-01-15</small>
+                </td>
+                <td>Maria Santos</td>
+                <td>Mouse Wireless</td>
+                <td>R$ 89</td>
+                <td>
+                  <span class="status pendente"
+                    ><i class="fa-solid fa-clock"></i> Pendente</span
+                  >
+                </td>
+                <td class="actions">
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>ORD-003</strong><br />
+                  <small>2025-01-14</small>
+                </td>
+                <td>Pedro Costa</td>
+                <td>Teclado Mecânico</td>
+                <td>R$ 350</td>
+                <td>
+                  <span class="status processando"
+                    ><i class="fa-solid fa-spinner"></i> Processando</span
+                  >
+                </td>
+                <td class="actions">
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>ORD-004</strong><br />
+                  <small>2025-01-14</small>
+                </td>
+                <td>Ana Oliveira</td>
+                <td>Monitor 4K</td>
+                <td>R$ 1.200</td>
+                <td>
+                  <span class="status concluido"
+                    ><i class="fa-solid fa-check"></i> Concluído</span
+                  >
+                </td>
+                <td class="actions">
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
     <script src="/principal/principal.js"></script>
   </body>
 </html>
