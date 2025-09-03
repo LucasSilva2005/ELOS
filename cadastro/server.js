@@ -51,6 +51,10 @@ app.get("/clientes/", (req, res) => {
   res.sendFile(path.join(__dirname, "../clientes/cadastro_clientes.html"));
 });
 
+app.get("/produtos", (req, res) => {
+  res.sendFile(path.join(__dirname, "../produtos/produtos.html"));
+});
+
 // ======================
 // Rota de cadastro
 // ======================

@@ -31,7 +31,7 @@
             <rect width="7" height="9" x="14" y="12" rx="1" />
             <rect width="7" height="5" x="3" y="16" rx="1" />
           </svg>
-          <a href="/principal/principal.html">Dashboard</a>
+          <a href="/dashboard">Dashboard</a>
         </li>
         <li>
           <svg
@@ -52,7 +52,7 @@
               d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
             />
           </svg>
-          <a href="/pedidos/pedidos.html" class="link">Pedidos</a>
+          <a href="/pedidos" class="link">Pedidos</a>
         </li>
         <li>
           <svg
@@ -71,7 +71,7 @@
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
             <path d="M12 18V6" />
           </svg>
-          <a href="/clientes/clientes.html">Clientes</a>
+          <a href="/clientes/lista">Clientes</a>
         </li>
         <li>
           <svg
@@ -93,7 +93,7 @@
             <polyline points="3.29 7 12 12 20.71 7" />
             <path d="m7.5 4.27 9 5.15" />
           </svg>
-          <a href="/produtos/produtos.html">Produtos</a>
+          <a href="/produtos">Produtos</a>
         </li>
       </ul>
     </div>
@@ -106,53 +106,16 @@
             <p>Gerencie sua base de clientes</p>
           </div>
           <button class="btn-novo">
-            <i class="fa-solid fa-user-plus"></i> Novo Cliente
+            <i class="fa-solid fa-user-plus"></i><a href="/clientes/">Cadastrar</a>
           </button>
         </header>
 
-        <section class="cards">
-          <div class="card">
-            <div class="avatar"><i class="fa-solid fa-user-group"></i></div>
-            <h3>João Silva</h3>
-            <p class="cliente-id">Cliente #1</p>
-            <p><i class="fa-solid fa-envelope"></i> joao@email.com</p>
-            <p><i class="fa-solid fa-phone"></i> (11) 99999-9999</p>
-            <hr />
-            <div class="info">
-              <p>Pedidos: <span>12</span></p>
-              <p>Total Gasto: <span class="valor">R$ 15.600</span></p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="avatar"><i class="fa-solid fa-user-group"></i></div>
-            <h3>Maria Santos</h3>
-            <p class="cliente-id">Cliente #2</p>
-            <p><i class="fa-solid fa-envelope"></i> maria@email.com</p>
-            <p><i class="fa-solid fa-phone"></i> (11) 88888-8888</p>
-            <hr />
-            <div class="info">
-              <p>Pedidos: <span>8</span></p>
-              <p>Total Gasto: <span class="valor">R$ 8.900</span></p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="avatar"><i class="fa-solid fa-user-group"></i></div>
-            <h3>Pedro Costa</h3>
-            <p class="cliente-id">Cliente #3</p>
-            <p><i class="fa-solid fa-envelope"></i> pedro@email.com</p>
-            <p><i class="fa-solid fa-phone"></i> (11) 77777-7777</p>
-            <hr />
-            <div class="info">
-              <p>Pedidos: <span>15</span></p>
-              <p>Total Gasto: <span class="valor">R$ 23.400</span></p>
-            </div>
-          </div>
+        <section class="cards" id="cardsContainer">
+          
         </section>
       </div>
     </div>
-    <script src="../principal/principal.js"></script>
-    <script src="../cadastro/clientes.js"></script>
+    <script src="/js/principal.js"></script>
+    <script src="/js/cadastro_cliente.js"></script>
   </body>
 </html>

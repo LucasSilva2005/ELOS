@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* BODY DARK MODE */
+/* BODY DARK MODE FUTURISTA */
 body {
   height: 100vh;
   display: flex;
@@ -16,30 +16,18 @@ body {
   color: #fff;
 }
 
-/* CONTAINER */
-.container {
+/* FORM CONTAINER */
+form {
+  background: rgba(255, 255, 255, 0.05);
   padding: 2.5rem;
   border-radius: 1rem;
-  width: 420px;
-  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 0.8s ease;
-}
-
-/* TÍTULO */
-h2 {
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-size: 1.4rem;
-}
-
-/* FORM */
-form {
+  width: 350px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
+  animation: fadeIn 0.8s ease;
 }
 
 /* LABELS */
@@ -68,7 +56,6 @@ input:focus {
 
 /* BOTÃO */
 button {
-  margin-top: 1rem;
   padding: 0.9rem;
   border: none;
   border-radius: 0.6rem;

@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h2>Cadastrar Novo Cliente</h2>
-    <form id="formCadastroCliente">
+    <form id="formCadastroCliente" action="/clientes" method="post">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -23,13 +23,14 @@
       <input type="text" id="telefone" name="telefone">
 
       <label for="pedidos">Pedidos</label>
-      <input type="number" id="pedidos" name="pedidos" min="0" value="0">
+      <input type="text" id="pedidos" name="pedidos" >
 
       <label for="total_gasto">Total Gasto (R$)</label>
-      <input type="number" id="total_gasto" name="total_gasto" min="0" step="0.01" value="0.00">
+      <input type="text" id="total_gasto" name="total_gasto">
 
       <button type="submit">Salvar Cliente</button>
     </form>
   </div>
+  <script src="/js/cadastro_cliente.js"></script>
 </body>
 </html>
