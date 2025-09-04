@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/cb0a30dfe4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/sidebar.css" />
     <link rel="stylesheet" href="/css/produtos.css" />
     <title>Produtos</title>
@@ -103,7 +104,7 @@
           <h1>Produtos</h1>
           <p>Gerencie seu catálogo de produtos</p>
           <button class="btn-novo">
-            <i class="fa-solid fa-plus"></i> Novo Produto
+            <i class="fa-solid fa-plus"></i><a href="/cadastro_produto">Novo Produto</a>
           </button>
         </header>
 
@@ -118,68 +119,13 @@
               <th>AÇÕES</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="produto-info">
-                  <div class="icon"><i class="fa-solid fa-box"></i></div>
-                  <div>
-                    <strong>Notebook Dell Inspiron</strong><br />
-                    <span>ID: 1</span>
-                  </div>
-                </div>
-              </td>
-              <td>Eletrônicos</td>
-              <td><strong>R$ 2.500</strong></td>
-              <td>15 unidades</td>
-              <td><span class="status ativo">Ativo</span></td>
-              <td>
-                <i class="fa-solid fa-pen-to-square edit"></i>
-                <i class="fa-solid fa-trash delete"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="produto-info">
-                  <div class="icon"><i class="fa-solid fa-box"></i></div>
-                  <div>
-                    <strong>Mouse Logitech MX</strong><br />
-                    <span>ID: 2</span>
-                  </div>
-                </div>
-              </td>
-              <td>Acessórios</td>
-              <td><strong>R$ 89</strong></td>
-              <td>45 unidades</td>
-              <td><span class="status ativo">Ativo</span></td>
-              <td>
-                <i class="fa-solid fa-pen-to-square edit"></i>
-                <i class="fa-solid fa-trash delete"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="produto-info">
-                  <div class="icon"><i class="fa-solid fa-box"></i></div>
-                  <div>
-                    <strong>Teclado Corsair K95</strong><br />
-                    <span>ID: 3</span>
-                  </div>
-                </div>
-              </td>
-              <td>Acessórios</td>
-              <td><strong>R$ 350</strong></td>
-              <td>8 unidades</td>
-              <td><span class="status baixo">Estoque Baixo</span></td>
-              <td>
-                <i class="fa-solid fa-pen-to-square edit"></i>
-                <i class="fa-solid fa-trash delete"></i>
-              </td>
-            </tr>
+          <tbody id="tabelaProdutos">
+            
           </tbody>
         </table>
       </div>
     </div>
     <script src="/js/principal.js"></script>
+    <script src="/js/produtos.js"></script>
   </body>
 </html>

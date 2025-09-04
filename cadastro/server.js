@@ -55,6 +55,10 @@ app.get("/produtos", (req, res) => {
   res.sendFile(path.join(__dirname, "../produtos/produtos.html"));
 });
 
+app.get("/cadastro_produto", (req, res) => {
+  res.sendFile(path.join(__dirname, "../produtos/cadastro_produto.html"));
+});
+
 // ======================
 // Rota de cadastro
 // ======================
@@ -137,6 +141,98 @@ app.get("/clientes/data", async (req, res) => {
     res.status(500).send({ message: "❌ Erro ao buscar clientes" });
   }
 });
+
+// ======================
+// ROTAS DE PRODUTOS
+// ======================
+
+// Cadastrar produto
+app.post("/api/produtos", async (req, res) => {
+  const { sku, nome, categoria, preco, estoque, status } = req.body;
+
+  try {
+    const result = await pool.query(
+      `INSERT INTO produtos (sku, nome, categoria, preco, estoque, status)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      [sku, nome, categoria, preco, estoque, status]
+    );
+
+    res.status(201).json({
+      message: "✅ Produto cadastrado com sucesso!",
+      produto: result.rows[0]
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao cadastrar produto" });
+  }
+});
+
+// Listar produtos
+app.get("/api/produtos", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM produtos ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao buscar produtos" });
+  }
+});
+
+// Editar produto
+app.put("/api/produtos/:id", async (req, res) => {
+  const { id } = req.params;
+  const { sku, nome, categoria, preco, estoque, status } = req.body;
+
+  try {
+    const result = await pool.query(
+      `UPDATE produtos
+       SET
+         sku = COALESCE($1, sku),
+         nome = COALESCE($2, nome),
+         categoria = COALESCE($3, categoria),
+         preco = COALESCE($4, preco),
+         estoque = COALESCE($5, estoque),
+         status = COALESCE($6, status),
+         atualizado_em = NOW()
+       WHERE id = $7
+       RETURNING *`,
+      [sku, nome, categoria, preco, estoque, status, id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Produto não encontrado" });
+    }
+
+    res.json({ message: "Produto atualizado com sucesso!", produto: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao atualizar produto" });
+  }
+});
+
+
+
+// Deletar produto
+app.delete("/api/produtos/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await pool.query(
+      "DELETE FROM produtos WHERE id = $1 RETURNING *",
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "⚠️ Produto não encontrado" });
+    }
+
+    res.json({ message: "✅ Produto removido com sucesso!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao deletar produto" });
+  }
+});
+
 
 
 // Inicia servidor

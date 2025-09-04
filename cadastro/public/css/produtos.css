@@ -48,6 +48,11 @@ header .btn-novo {
     gap: 8px;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Tabela */
 table {
     width: 100%;
@@ -130,14 +135,17 @@ tbody td {
     color: #b45309;
 }
 
-/* Ações */
+/* Ações: editar e deletar com ícones */
 .edit {
     color: #16a34a;
     margin-right: 10px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .delete {
     color: #dc2626;
     cursor: pointer;
+    font-size: 16px;
 }
+
