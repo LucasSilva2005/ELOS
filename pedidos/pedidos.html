@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/cb0a30dfe4.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Gerenciar Pedidos</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/pedidos.css" />
     <link rel="stylesheet" href="/css/sidebar.css" />
   </head>
@@ -110,16 +114,13 @@
             <p>Visualize e gerencie todos os pedidos</p>
           </div>
           <div class="actions-top">
-            <select>
+            <select id="filtro-status">
               <option>Todos os Status</option>
               <option>Concluído</option>
-              <option>Pendente</option>
+              <option>Pendente de pagamento</option>
               <option>Processando</option>
             </select>
-            <button class="btn export">
-              <i class="fa-solid fa-download"></i> Exportar
-            </button>
-            <button class="btn novo">+ Novo Pedido</button>
+            <a href="/cadastro_pedidos" class="btn novo">+ Novo Pedido</a>
           </div>
         </header>
 
@@ -136,88 +137,124 @@
                 <th>Ações</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>ORD-001</strong><br />
-                  <small>2025-01-15</small>
-                </td>
-                <td>João Silva</td>
-                <td>Notebook Dell</td>
-                <td>R$ 2.500</td>
-                <td>
-                  <span class="status concluido"
-                    ><i class="fa-solid fa-check"></i> Concluído</span
-                  >
-                </td>
-                <td class="actions">
-                  <i class="fa-solid fa-eye"></i>
-                  <i class="fa-solid fa-pen"></i>
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>ORD-002</strong><br />
-                  <small>2025-01-15</small>
-                </td>
-                <td>Maria Santos</td>
-                <td>Mouse Wireless</td>
-                <td>R$ 89</td>
-                <td>
-                  <span class="status pendente"
-                    ><i class="fa-solid fa-clock"></i> Pendente</span
-                  >
-                </td>
-                <td class="actions">
-                  <i class="fa-solid fa-eye"></i>
-                  <i class="fa-solid fa-pen"></i>
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>ORD-003</strong><br />
-                  <small>2025-01-14</small>
-                </td>
-                <td>Pedro Costa</td>
-                <td>Teclado Mecânico</td>
-                <td>R$ 350</td>
-                <td>
-                  <span class="status processando"
-                    ><i class="fa-solid fa-spinner"></i> Processando</span
-                  >
-                </td>
-                <td class="actions">
-                  <i class="fa-solid fa-eye"></i>
-                  <i class="fa-solid fa-pen"></i>
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>ORD-004</strong><br />
-                  <small>2025-01-14</small>
-                </td>
-                <td>Ana Oliveira</td>
-                <td>Monitor 4K</td>
-                <td>R$ 1.200</td>
-                <td>
-                  <span class="status concluido"
-                    ><i class="fa-solid fa-check"></i> Concluído</span
-                  >
-                </td>
-                <td class="actions">
-                  <i class="fa-solid fa-eye"></i>
-                  <i class="fa-solid fa-pen"></i>
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="lista-pedidos"></tbody>
           </table>
         </section>
       </div>
     </div>
+
     <script src="/js/principal.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+  const listaPedidos = document.getElementById("lista-pedidos");
+  const filtroStatus = document.getElementById("filtro-status");
+
+  let pedidosData = []; // armazena pedidos carregados
+
+  async function carregarPedidos(status = "") {
+    let url = "/pedidos/data";
+    if (status && status !== "Todos os Status") {
+      url += `?status=${encodeURIComponent(status)}`;
+    }
+
+    try {
+      const res = await fetch(url);
+      pedidosData = await res.json();
+      atualizarTabela(pedidosData);
+    } catch (err) {
+      console.error("Erro ao carregar pedidos:", err);
+    }
+  }
+
+  function atualizarTabela(pedidos) {
+    listaPedidos.innerHTML = "";
+    pedidos.forEach((p) => {
+      const tr = document.createElement("tr");
+      tr.dataset.id = p.id;
+      tr.innerHTML = `
+        <td>${p.id}</td>
+        <td>${p.cliente}</td>
+        <td>${p.produto}</td>
+        <td>R$ ${parseFloat(p.valor).toFixed(2)}</td>
+        <td>${p.status}</td>
+        <td>
+          <button class="btn editar" title="Editar Pedido">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button class="btn deletar" title="Deletar Pedido">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      `;
+      listaPedidos.appendChild(tr);
+    });
+  }
+
+  // Event delegation para editar e deletar
+  listaPedidos.addEventListener("click", async (e) => {
+    const tr = e.target.closest("tr");
+    if (!tr) return;
+    const id = tr.dataset.id;
+    const pedido = pedidosData.find(p => p.id == id);
+
+    // DELETE
+    if (e.target.closest(".deletar")) {
+      if (confirm("Deseja realmente deletar este pedido?")) {
+        try {
+          const res = await fetch(`/pedidos/${id}`, { method: 'DELETE' });
+          if (!res.ok) throw new Error("Erro ao deletar pedido");
+          // remove do array local
+          pedidosData = pedidosData.filter(p => p.id != id);
+          atualizarTabela(pedidosData);
+        } catch (err) {
+          console.error(err);
+          alert("Não foi possível deletar o pedido");
+        }
+      }
+    }
+
+    // EDIT
+    if (e.target.closest(".editar")) {
+      const novoProduto = prompt("Produto:", pedido.produto);
+      const novoCliente = prompt("Cliente:", pedido.cliente);
+      const novoValor = prompt("Valor:", pedido.valor);
+      const novoStatus = prompt("Status:", pedido.status);
+
+      if (novoProduto && novoCliente && novoValor && novoStatus) {
+        const pedidoAtualizado = {
+          ...pedido,
+          produto: novoProduto,
+          cliente: novoCliente,
+          valor: parseFloat(novoValor),
+          status: novoStatus
+        };
+
+        try {
+          const res = await fetch(`/pedidos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(pedidoAtualizado)
+          });
+          if (!res.ok) throw new Error("Erro ao atualizar pedido");
+
+          // atualiza o array local e a tabela
+          pedidosData = pedidosData.map(p => p.id == id ? pedidoAtualizado : p);
+          atualizarTabela(pedidosData);
+        } catch (err) {
+          console.error(err);
+          alert("Não foi possível atualizar o pedido");
+        }
+      }
+    }
+  });
+
+  // Filtro
+  filtroStatus.addEventListener("change", () => {
+    carregarPedidos(filtroStatus.value);
+  });
+
+  carregarPedidos();
+});
+    </script>
   </body>
 </html>

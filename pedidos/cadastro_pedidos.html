@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Pedidos</title>
+    <link rel="stylesheet" href="/css/cadastro_pedidos.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cadastrar Novo Pedido</h2>
+      <form id="form-pedido">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required />
+
+        <label for="produto">Produto:</label>
+        <input type="text" id="produto" name="produto" required />
+
+        <label for="valor">Valor (R$):</label>
+        <input type="number" id="valor" name="valor" step="0.01" required />
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="Concluído">Concluído</option>
+          <option value="Pendente de pagamento">Pendente de pagamento</option>
+          <option value="Processando">Processando</option>
+        </select>
+
+        <button type="submit">Cadastrar Pedido</button>
+      </form>
+      <p id="msg-sucesso" style="color: green; display: none">
+        Pedido cadastrado com sucesso!
+      </p>
+    </div>
+    <script src="/js/cadastro_pedidos.js"></script>
+  </body>
 </html>

@@ -59,6 +59,10 @@ app.get("/cadastro_produto", (req, res) => {
   res.sendFile(path.join(__dirname, "../produtos/cadastro_produto.html"));
 });
 
+app.get("/cadastro_pedidos", (req, res) => {
+  res.sendFile(path.join(__dirname, "../pedidos/cadastro_pedidos.html"));
+});
+
 // ======================
 // Rota de cadastro
 // ======================
@@ -233,6 +237,152 @@ app.delete("/api/produtos/:id", async (req, res) => {
   }
 });
 
+// Cadastrar pedido
+app.post("/pedidos", async (req, res) => {
+  const { cliente, produto, valor, status } = req.body;
+
+  try {
+    const result = await pool.query(
+      `INSERT INTO pedidos (cliente, produto, valor, status)
+       VALUES ($1, $2, $3, $4) RETURNING *`,
+      [cliente, produto, valor, status]
+    );
+
+    res.status(201).json({ message: "Pedido cadastrado com sucesso!", pedido: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao cadastrar o pedido" });
+  }
+});
+
+// Retornar pedidos em JSON
+app.get("/pedidos/data", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM pedidos ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao buscar pedidos" });
+  }
+});
+
+// Deletar pedido
+app.delete("/pedidos/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query(
+      "DELETE FROM pedidos WHERE id = $1 RETURNING *",
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Pedido não encontrado" });
+    }
+
+    res.json({ message: "✅ Pedido deletado com sucesso!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao deletar pedido" });
+  }
+});
+
+// Editar pedido
+app.put("/pedidos/:id", async (req, res) => {
+  const { id } = req.params;
+  const { cliente, produto, valor, status } = req.body;
+
+  try {
+    const result = await pool.query(
+      `UPDATE pedidos
+       SET
+         cliente = COALESCE($1, cliente),
+         produto = COALESCE($2, produto),
+         valor = COALESCE($3, valor),
+         status = COALESCE($4, status)
+       WHERE id = $5
+       RETURNING *`,
+      [cliente, produto, valor, status, id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Pedido não encontrado" });
+    }
+
+    res.json({ message: "✅ Pedido atualizado com sucesso!", pedido: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erro ao atualizar pedido" });
+  }
+});
+
+// ======================
+// ROTAS API PEDIDOS
+// ======================
+
+// Listar pedidos
+app.get("/api/pedidos", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM pedidos ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao buscar pedidos" });
+  }
+});
+
+// Cadastrar pedido
+app.post("/api/pedidos", async (req, res) => {
+  const { cliente, produto, valor, status } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO pedidos (cliente, produto, valor, status) VALUES ($1, $2, $3, $4) RETURNING *",
+      [cliente, produto, valor, status]
+    );
+    res.status(201).json({ message: "✅ Pedido cadastrado com sucesso!", pedido: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao cadastrar pedido" });
+  }
+});
+
+// Editar pedido
+app.put("/api/pedidos/:id", async (req, res) => {
+  const { id } = req.params;
+  const { cliente, produto, valor, status } = req.body;
+  try {
+    const result = await pool.query(
+      `UPDATE pedidos
+       SET cliente = COALESCE($1, cliente),
+           produto = COALESCE($2, produto),
+           valor = COALESCE($3, valor),
+           status = COALESCE($4, status)
+       WHERE id = $5
+       RETURNING *`,
+      [cliente, produto, valor, status, id]
+    );
+
+    if (result.rows.length === 0) return res.status(404).json({ message: "Pedido não encontrado" });
+
+    res.json({ message: "✅ Pedido atualizado com sucesso!", pedido: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao atualizar pedido" });
+  }
+});
+
+// Deletar pedido
+app.delete("/api/pedidos/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query("DELETE FROM pedidos WHERE id = $1 RETURNING *", [id]);
+    if (result.rows.length === 0) return res.status(404).json({ message: "Pedido não encontrado" });
+
+    res.json({ message: "✅ Pedido removido com sucesso!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Erro ao deletar pedido" });
+  }
+});
 
 
 // Inicia servidor
